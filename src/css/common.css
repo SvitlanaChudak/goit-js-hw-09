@@ -21,12 +21,10 @@ img {
   display: flex;
   margin-top: 20px;
   gap: 15px;
-}
-
-.field {
   background-color: black;
+  width: 340px;
   padding: 5px;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 .value {
