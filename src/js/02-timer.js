@@ -25,11 +25,12 @@ const options = {
             Notify.failure('Please choose a date in the future');
         } else {
             startBtn.removeAttribute('disabled');
-            startBtn.addEventListener('click', () => {
+          startBtn.addEventListener('click', () => {
+                startBtn.setAttribute('disabled', true);
+                calendar.setAttribute('disabled', true);
                 timerId = setInterval(startTimer, 1000);
                 timeDifference = selectedDates[0].getTime() - Date.now();
             });
-
         }
   },
 };
@@ -39,12 +40,8 @@ startBtn.setAttribute('disabled', true);
 flatpickr(calendar, options);
 
 function startTimer() {
-  startBtn.setAttribute('disabled', true);
-  calendar.setAttribute('disabled', true);
     timeDifference -= 1000;
-    formatDate = convertMs(timeDifference);
-    renderDate(formatDate);
-  if (secondsValue.textContent <= 0 && minutesValue.textContent <= 0) {
+  if (timeDifference < 1000) {
     Notify.success('Time end');
     clearInterval(timerId);
   } else {
