@@ -41,7 +41,7 @@ flatpickr(calendar, options);
 
 function startTimer() {
     timeDifference -= 1000;
-  if (timeDifference < 1000) {
+  if (timeDifference < 0) {
     Notify.success('Time end');
     clearInterval(timerId);
   } else {
